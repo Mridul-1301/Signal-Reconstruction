@@ -1,6 +1,6 @@
-# ECG Signal Imputation Operator - Clean Implementation
+# Self-supervised weight-adaptive regularization for signal reconstruction
 
-This is a clean, streamlined version of the ECG signal imputation operator with implicit gradient training.
+This is a clean, streamlined implementation of self-supervised, weight-adaptive regularization for signal reconstruction with implicit gradient training. The included demo illustrates the approach on ECG data with missing values.
 
 ## Directory Structure
 
@@ -11,11 +11,13 @@ This is a clean, streamlined version of the ECG signal imputation operator with 
   - `weights.py` - Safe weight parameterization and neural network
   - `solver.py` - Conjugate gradient solver
   - `layer.py` - Main autograd module with implicit gradient support
-- **`main/`** - Demo script (`demo_ecg_operator.py`)
+- **`main/`** - Demo script for the ECG example (`demo_ecg_operator.py`)
 
 ## Key Features
 
-- **Implicit Mode**: Adjoint gradient through optimizer for general loss functions
+- **Self-supervised training**: Learns from masked/observed samples without ground-truth targets
+- **Weight-adaptive regularization**: Learnable, spatially adaptive weights stabilize reconstruction
+- **Implicit gradients**: Adjoint gradient through optimizer for general loss functions
 - **Safe Weight Parameterization**: Prevents weight collapse with mean scale normalization
 - **Conjugate Gradient Solver**: Efficient solution of normal equations
 - **Linear Operators**: Proper adjoint implementation for numerical stability
@@ -29,7 +31,7 @@ cd main
 python demo_ecg_operator.py
 ```
 
-This will demonstrate the implicit gradient method on real ECG data with missing values.
+This demonstrates self-supervised, weight-adaptive regularization for reconstructing ECG signals with missing values using implicit gradients.
 
 ## Improvements Made
 
